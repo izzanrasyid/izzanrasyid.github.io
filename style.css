@@ -79,7 +79,7 @@ body {
 	width: 302px;
 }
 	/* Profile */
-	#profile-summary, #tweet-content {
+	#profile-summary, .tweet-content {
 		padding: 12px;
 	}
 		#profile-summary .avatar {
@@ -99,7 +99,7 @@ body {
 			text-shadow: 0 1px 0 #fff;
 		}
 
-		#tweet-content {
+		.tweet-content {
 			padding-top: 0;
 		}
 

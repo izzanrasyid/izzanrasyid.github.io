@@ -21,51 +21,25 @@
                     <p>Masukin Username disini</p>
                 </div>
             </div>
-            <div id="tweet-content">
-                <textarea class="tweet-compose" placeholder="Compose new Tweet..." /></textarea>
-                <div id="tweet-controls">
-                    <div id="char-count">140</div>
-                    <button class="button" id="tweet-submit">Tweet</button>
-                </div>
-            </div>
+            <div class="tweet-content">
+                <form>
+                  <input type="text" class="form-input-text" placeholder="Compose new Tweet..."/>
+                  <div id="tweet-controls">
+                      <button class="form-button" id="tweet-submit">Tweet</button>
+                  </div>
+                </form>
+              </div>
         </div>
         <div id="main">
             <h2>Tweets</h2>
-            <div id="stream">
-                <div class="tweet">
-                    <div class="content">
-                        <img class="avatar"
-                            src="https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-superJumbo-v4.jpg" />
-                        <strong class="fullname">My BFF</strong>
-                        <span class="username">@mybff</span>
-                        <p class="tweet-text">Today is an amazing day.</p>
-                        <div class="tweet-actions">
-                            <ul>
-                                <li><span class="icon action-edit"></span> Edit</li>
-                                <li><span class="icon action-delete"></span> Delete</li>
-                            </ul>
-                        </div>  
-                    </div>
-                </div>
-
-                <div class="tweet">
-                    <div class="content">
-                        <img class="avatar" src="https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-superJumbo-v4.jpg" />
-                        <strong class="fullname">The Onion</strong>
-                        <span class="username">@theonion</span>
-                        <p class="tweet-text">“I'm able to speak confidently about a wide range of subjects, so it’s
-                            probably hard for most women to follow.” http://onion.com/1aWfKwf </p>
-                        <div class="tweet-actions">
-                            <ul>
-                                <li><span class="icon action-edit"></span> Edit</li>
-                                <li><span class="icon action-delete"></span> Delete</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <div class="todo-box tweet">
+                  <div class="content">
+                      <ul class="tweet-list"></ul>
+                  </div>
+              </div>
         </div>
     </div>
+    <script src="index.js"></script>
 </body>
 
 </html>
