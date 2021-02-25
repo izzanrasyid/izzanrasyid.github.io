@@ -21,7 +21,10 @@ let tweets = [
   const formInputDate = document.querySelector(".form-input-date");
   const formButton = document.querySelector(".form-button");
   const tweetList = document.querySelector(".tweet-list");
+//   const editButton = document.querySelector("edit-button")
   formButton.addEventListener("click", addTweet);
+  tweetList.addEventListener("click", deleteTweet);
+//   editButton.addEventListener("click", editTweet);
   
   function addTweet(event) {
     event.preventDefault();
@@ -35,6 +38,19 @@ let tweets = [
       )
     }
     render()
+  }
+
+  function deleteTweet(event) {
+    const item = event.target;
+    if (item.classList[0] === "delete-btn") {
+      const todo = item.parentElement;
+      console.log("sayur")
+      todo.remove()
+    }
+  }
+
+  function editTweet(event){
+    
   }
   
   function render() {
@@ -58,11 +74,14 @@ let tweets = [
       
       const editButton = document.createElement("button");
       editButton.innerHTML = "Edit";
-      editButton.classList.add("edit-btn");
+      editButton.classList.add("editButton");
       editButton.setAttribute("type", "submit")
+      editButton.addEventListener("click", editTweet);
       tweet.appendChild(editButton);
+      
 
       tweetList.appendChild(tweet);
+    
     }
   }
   render()
