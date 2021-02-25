@@ -131,8 +131,9 @@ body {
 	clear: both;
 	padding: 9px 12px;
 	border-bottom: 1px solid #e8e8e8;
-	min-height: 60px;
+	min-height: 20px;
 	border-radius: 6px;
+
 }
 
 	.tweet .avatar {
@@ -245,3 +246,7 @@ body {
 				top: 0;
 				left: 0;
 			}
+
+.delete-btn {
+	margin-top: 5px;
+}
