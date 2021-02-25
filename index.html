@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <!-- CSS only -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+</head>
+
+<body>
+    <div id="page-container">
+        <div id="dashboard">
+            <div id="profile-summary">
+                <div class="content">
+                    <img class='avatar'
+                        src='https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-superJumbo-v4.jpg' />
+                    <p>Masukin Username disini</p>
+                </div>
+            </div>
+            <div id="tweet-content">
+                <textarea class="tweet-compose" placeholder="Compose new Tweet..." /></textarea>
+                <div id="tweet-controls">
+                    <div id="char-count">140</div>
+                    <button class="button" id="tweet-submit">Tweet</button>
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <h2>Tweets</h2>
+            <div id="stream">
+                <div class="tweet">
+                    <div class="content">
+                        <img class="avatar"
+                            src="https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-superJumbo-v4.jpg" />
+                        <strong class="fullname">My BFF</strong>
+                        <span class="username">@mybff</span>
+                        <p class="tweet-text">Today is an amazing day.</p>
+                        <div class="tweet-actions">
+                            <ul>
+                                <li><span class="icon action-edit"></span> Edit</li>
+                                <li><span class="icon action-delete"></span> Delete</li>
+                            </ul>
+                        </div>  
+                    </div>
+                </div>
+
+                <div class="tweet">
+                    <div class="content">
+                        <img class="avatar" src="https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-superJumbo-v4.jpg" />
+                        <strong class="fullname">The Onion</strong>
+                        <span class="username">@theonion</span>
+                        <p class="tweet-text">“I'm able to speak confidently about a wide range of subjects, so it’s
+                            probably hard for most women to follow.” http://onion.com/1aWfKwf </p>
+                        <div class="tweet-actions">
+                            <ul>
+                                <li><span class="icon action-edit"></span> Edit</li>
+                                <li><span class="icon action-delete"></span> Delete</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
