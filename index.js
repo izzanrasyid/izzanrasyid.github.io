@@ -1,30 +1,18 @@
 let tweets = [
-    ["Hari ini makan apaan ya?"],
-    ["Chelsea besok mudah2an menang lagi"],
-    ["Minggu depan udah phase 1 ajee"],
-    ["Jalan-jalan sore"],
-    ["Tugas hari ini udah beres"],
-    ["Service hp dulu dahhh"]
-  ]
-  
-  function createObject (tweets) {
-    let output = []
-    for(let i = 0; i < tweets.length; i++){
-      let [task] = tweets[i]
-      let obj = {task}
-      output.unshift(obj);
-    }
-    return output;
-  }
+  { task: 'Service hp dulu dahhh' },
+  { task: 'Tugas hari ini udah beres' },
+  { task: 'Jalan-jalan sore' },
+  { task: 'Minggu depan udah phase 1 ajee' },
+  { task: 'Chelsea besok mudah2an menang lagi' },
+  { task: 'Hari ini makan apaan ya?' }
+]
   
   const formInputText = document.querySelector(".form-input-text");
   const formInputDate = document.querySelector(".form-input-date");
   const formButton = document.querySelector(".form-button");
   const tweetList = document.querySelector(".tweet-list");
-//   const editButton = document.querySelector("edit-button")
   formButton.addEventListener("click", addTweet);
   tweetList.addEventListener("click", deleteTweet);
-//   editButton.addEventListener("click", editTweet);
   
   function addTweet(event) {
     event.preventDefault();
@@ -33,8 +21,8 @@ let tweets = [
     if(formInputText.value === ''){
       alert('Mohon tidak ada yang dikosongkan')
     } else{
-      tweets.push(
-        [formInputText.value]
+      tweets.unshift(
+        {task: formInputText.value}
       )
     }
     render()
@@ -43,24 +31,53 @@ let tweets = [
   function deleteTweet(event) {
     const item = event.target;
     if (item.classList[0] === "delete-btn") {
-      const todo = item.parentElement;
-      console.log("sayur")
-      todo.remove()
+      const tweet = item.parentElement;
+      tweet.remove()
     }
   }
 
   function editTweet(event){
-    const pBaru = document.createElement('p')
-    pBaru.classList.add("tweet-item");
-    const tekbaru = document.createTextNode('paragraf baru')
-    
-    console.log(tekbaru)
-    pBaru.appendChild(tekbaru)
+    const edits = event.target;
+    if (edits.classList[0] === "editButton") {
+      const newEdit = edits.parentElement;
+      const textEdit = document.createElement("input");
+
+      const saveButton = document.createElement("button");
+      saveButton.innerHTML = "save";
+      saveButton.classList.add("save-btn");
+      saveButton.setAttribute("type", "submit")
+
+      
+      let inputText = newEdit.querySelector("li")
+      let inputText2 = inputText.querySelector("p")
+      let innerText = inputText2.innerText
+      inputText2.remove()
+      textEdit.setAttribute("value", innerText);
+      inputText.appendChild(textEdit);
+      inputText.appendChild(saveButton);
+
+      saveButton.addEventListener("click", submitEdit)
+    }  
   }
   
+  function submitEdit(event){
+    const submit = event.target
+    if(submit.classList[0] === "save-btn"){
+      const newSubmit = submit.parentElement
+      const submitValue = newSubmit.querySelector("input")
+      
+      const finalValue = submitValue.value
+      submitValue.remove()
+      const finalSaveButton = newSubmit.querySelector(".save-btn")
+      finalSaveButton.remove()
+      const finalP = document.createElement("p")
+      finalP.innerText = finalValue;
+      newSubmit.appendChild(finalP);
+    }
+  }
   function render() {
-    let tweetListObj = createObject(tweets)
-    for (let i = 0; i < tweetListObj.length; i++) {
+   
+    for (let i = 0; i < tweets.length; i++) {
       const tweet = document.createElement("div");
       tweet.classList.add("tweet");
 
@@ -79,10 +96,16 @@ let tweets = [
       profil.appendChild(username);
       
       const newtweet = document.createElement("li");
-      newtweet.innerText = `${tweetListObj[i].task}`;
+      // newtweet.innerText = `${tweets[i].task}`;
       newtweet.classList.add("tweet-item");
       tweet.appendChild(newtweet);
-      
+
+      const pNewTweet = document.createElement("p");
+      pNewTweet.innerText = `${tweets[i].task}`;
+      pNewTweet.classList.add("tweet-item2");
+      newtweet.appendChild(pNewTweet);
+      console.log(tweet);
+
       const deleteButton = document.createElement("button");
       deleteButton.innerHTML = "Delete";
       deleteButton.classList.add("delete-btn");
